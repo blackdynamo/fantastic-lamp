@@ -30,5 +30,8 @@ jobs:
       continue-on-error: true
       run: ls node_modules/.cache/turbo
     - run: npm ci
+    - name: List the contents of turbo cache
+      continue-on-error: true
+      run: ls node_modules/.cache/turbo
     - run: npm run build --if-present
     - run: npm test
