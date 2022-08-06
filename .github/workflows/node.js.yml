@@ -26,8 +26,7 @@ jobs:
         key: turbo-cache-8ce4a94f-0de9-465b-a035-a96fb0add57d
         path: |
           node_modules/.cache/turbo
-    - if: ${{ steps.turbo-cache-8ce4a94f-0de9-465b-a035-a96fb0add57d.outputs.cache-hit == 'true' }}
-      name: List the contents of turbo cache
+    - name: List the contents of turbo cache
       continue-on-error: true
       run: ls node_modules/.cache/turbo
     - run: npm ci
