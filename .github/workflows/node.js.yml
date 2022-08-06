@@ -18,9 +18,12 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
-        cache-dependency-path: |
+        node-version-file: ".nvmrc"
+        cache: "npm"
+    - uses: actions/cache@v3
+      with:
+        key: turbo-cache-8ce4a94f-0de9-465b-a035-a96fb0add57d
+        path: |
           node_modules/.cache/turbo
 #    - run: ls node_modules
     - run: npm ci
