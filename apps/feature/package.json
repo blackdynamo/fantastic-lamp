@@ -4,6 +4,7 @@
   "private": true,
   "main": "lib/index.js",
   "dependencies": {
+    "@blackdynamo/logger": "*",
     "@growthbook/growthbook": "^0.18.1",
     "lodash": "^4.17.21",
     "zod": "^3.17.10"
