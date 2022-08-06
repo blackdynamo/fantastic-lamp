@@ -1,3 +1,5 @@
+import { setTimeout } from "node:timers/promises";
+
 import { FeatureDefinition } from "@growthbook/growthbook";
 
 import { userFeatures } from "./user-features";
@@ -18,7 +20,8 @@ describe("userFeatures", () => {
     expect(actual).toEqual({});
   });
 
-  it("should be true", () => {
+  it("should be true", async () => {
+    await setTimeout(10000);
     expect(true).toBe(true);
   });
 });
