@@ -17,4 +17,8 @@ describe("userFeatures", () => {
 
     expect(actual).toEqual({});
   });
+
+  it("should be true", () => {
+    expect(true).toBe(true);
+  });
 });
