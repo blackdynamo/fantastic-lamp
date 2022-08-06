@@ -10,6 +10,12 @@ on:
     branches: [ "main" ]
 
 jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./actions/hello-world
+
   build:
 
     runs-on: ubuntu-latest
