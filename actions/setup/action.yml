@@ -14,10 +14,10 @@ runs:
     - uses: actions/cache@v3
       name: Turbo cache
       with:
-        key: turbo-cache-${{ github.workflow }}-${{ github.sha }}
+        key: turbo-cache-${{ github.job }}-${{ github.sha }}
         path: |
           node_modules/.cache/turbo
           **/.turbo
         restore-keys: |
-          turbo-cache-${{ github.workflow }}-
+          turbo-cache-${{ github.job }}-
           turbo-cache-
