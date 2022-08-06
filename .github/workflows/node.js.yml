@@ -20,16 +20,13 @@ jobs:
       with:
         node-version-file: ".nvmrc"
         cache: "npm"
+    - run: npm ci
     - uses: actions/cache@v3
       name: Turbo Cache
       with:
         key: turbo-cache-8ce4a94f-0de9-465b-a035-a96fb0add57d
         path: |
           node_modules/.cache/turbo
-    - name: List the contents of turbo cache
-      continue-on-error: true
-      run: ls node_modules/.cache/turbo
-    - run: npm ci
     - name: List the contents of turbo cache
       continue-on-error: true
       run: ls node_modules/.cache/turbo
