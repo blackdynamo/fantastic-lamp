@@ -16,21 +16,50 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - uses: actions/setup-node@v3
+      name: npm cache
       with:
         node-version-file: ".nvmrc"
         cache: "npm"
-    - run: npm ci
+
+    - name: npm install
+      run: npm ci
+
     - uses: actions/cache@v3
-      name: Turbo Cache
+      name: Turbo cache
       with:
         key: turbo-cache-${{ github.sha }}
         path: |
           node_modules/.cache/turbo
         restore-keys: |
           turbo-cache-
-    - name: List the contents of turbo cache
-      continue-on-error: true
-      run: ls node_modules/.cache/turbo
-    - run: npm run build --if-present
-    - run: npm test
+
+    - run: npm run build
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        name: npm cache
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: npm install
+        run: npm ci
+
+      - uses: actions/cache@v3
+        name: Turbo cache
+        with:
+          key: turbo-cache-${{ github.sha }}
+          path: |
+            node_modules/.cache/turbo
+          restore-keys: |
+            turbo-cache-
+
+      - run: npm test
