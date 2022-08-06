@@ -1,0 +1,21 @@
+name: 'Setup'
+description: 'Sets up the step with npm modules and turbo cache'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v3
+      name: npm cache
+      with:
+        node-version-file: ".nvmrc"
+        cache: "npm"
+    - name: npm install
+      run: npm ci
+      shell: bash
+    - uses: actions/cache@v3
+      name: Turbo cache
+      with:
+        key: turbo-cache-${{ github.sha }}
+        path: |
+          node_modules/.cache/turbo
+        restore-keys: |
+          turbo-cache-

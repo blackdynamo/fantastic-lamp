@@ -14,8 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./actions/hello-world
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Hello World
+        uses: ./actions/hello-world
+      - name: Setup
+        uses: ./actions/setup
 
   build:
 
