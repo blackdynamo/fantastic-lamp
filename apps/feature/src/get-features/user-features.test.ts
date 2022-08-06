@@ -20,8 +20,8 @@ describe("userFeatures", () => {
     expect(actual).toEqual({});
   });
 
-  it("should be true", async () => {
-    await setTimeout(10000);
+  it("long timeout", async () => {
+    await setTimeout(30000);
     expect(true).toBe(true);
-  });
+  }, 60000);
 });
