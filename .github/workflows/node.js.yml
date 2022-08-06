@@ -24,9 +24,11 @@ jobs:
     - uses: actions/cache@v3
       name: Turbo Cache
       with:
-        key: turbo-cache-8ce4a94f-0de9-465b-a035-a96fb0add57d
+        key: turbo-cache-${{ github.sha }}
         path: |
           node_modules/.cache/turbo
+        restore-keys: |
+          turbo-cache-
     - name: List the contents of turbo cache
       continue-on-error: true
       run: ls node_modules/.cache/turbo
