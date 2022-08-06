@@ -10,21 +10,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  hello:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Hello World
-        uses: ./actions/hello-world
-      - name: Setup
-        uses: ./actions/setup
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -34,9 +22,7 @@ jobs:
       run: npm run build
 
   test:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,3 +30,13 @@ jobs:
         uses: ./actions/setup
       - name: Test
         run: npm run test
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        uses: ./actions/setup
+      - name: Type check
+        run: npm run typecheck
