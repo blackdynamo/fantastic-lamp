@@ -4,17 +4,12 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "build/**", "dist/**", "lib/**"]
+      "outputs": [".next/**", "lib/**"]
     },
-    "lint": {
-      "outputs": []
-    },
+    "lint": {},
     "test": {
-      "outputs": [],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
-    "typecheck": {
-      "outputs": []
-    }
+    "typecheck": {}
   }
 }
